@@ -29,10 +29,10 @@ memcachedServersIP[7]="10.0.0.6:11212"
 runmemaslap="./memaslap -s 127.0.0.1:9000 -T 64 -c 64 -o1 -w 1k -S 1s -t 360s -F smallvalue.cfg"
 runmemcached="memcached -p 11212 -t 1"
 ## ssh into all the machines and run memcached server on then
-# for i in "${memcachedServers[@]}";
-# do
-#     ssh $i tmux send -t foo "memcached" SPACE "-p" SPACE "11212" SPACE "-t" SPACE "1" ENTER
-# done
+for i in "${memcachedServers[@]}";
+do
+    ssh $i tmux send -t foo "memcached" SPACE "-p" SPACE "11212" SPACE "-t" SPACE "1" ENTER
+done
 
 memaslap[0]=jjain@jjainjinankjain4.westeurope.cloudapp.azure.com
 memaslap[1]=jjain@jjainjinankjain2.westeurope.cloudapp.azure.com
