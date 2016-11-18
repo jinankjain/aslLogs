@@ -96,7 +96,7 @@ do
                     echo -e "Flushing Middleware";
                     ssh $middleware tmux new-window -t foo;
                     ssh $middleware tmux send -t foo "killall" SPACE "-9" SPACE "java" ENTER;
-                    ssh $middleware tmux send -t foo "cd" SPACE "asl-fall16-project/middleware/" ENTER;
+                    ssh $middleware tmux send -t foo "cd" SPACE "aslLogs/middleware/" ENTER;
                 fi
             done
         done
