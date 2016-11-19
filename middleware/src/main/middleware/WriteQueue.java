@@ -118,7 +118,7 @@ public class WriteQueue {
                 for(int i=0; i<this.nodes.size();i++) {
                     MemcachedNode node = (MemcachedNode) this.nodes.get(i);
                     if(node.ipAddress == ipaddr && node.port == port) {
-                        index = node.id;
+                        index = ctq.get(node.id);
                         break;
                     }
                 }

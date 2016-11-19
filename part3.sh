@@ -82,7 +82,7 @@ do
                 fi
                 if [ $j -eq 1 ]; then
                     ssh $middleware tmux send -t foo "java" SPACE "-jar" SPACE "dist/middleware-jjain.jar" SPACE "-l" SPACE "10.0.0.10" SPACE "-p" SPACE "8000" SPACE "-t" SPACE 30 SPACE "-r" SPACE $i SPACE "-m" SPACE ${server_list} "\>" SPACE "../../part3/repition"$g"/middlwareReplication"$i"Server"$i".log" ENTER;
-                    pssh -h pssh-hosts -l jjain -A tmux send -t foo "./memaslap" SPACE "-s" SPACE "10.0.0.10:8000" SPACE "-T" SPACE "200" SPACE "-c" SPACE "200" SPACE "-o1" SPACE "-S" SPACE "1s" SPACE "-t" SPACE "60s" SPACE "-F" SPACE "new"$q".cfg" SPACE "\>" SPACE "../../part3/repition"$g"/memslapReplication"$i"Server"$i".log" ENTER ;
+                    pssh -h pssh-hosts -l jjain tmux send -t foo "./memaslap" SPACE "-s" SPACE "10.0.0.10:8000" SPACE "-T" SPACE "200" SPACE "-c" SPACE "200" SPACE "-o1" SPACE "-S" SPACE "1s" SPACE "-t" SPACE "60s" SPACE "-F" SPACE "new"$q".cfg" SPACE "\>" SPACE "../../part3/repition"$g"/memslapReplication"$i"Server"$i".log" ENTER ;
                     sleep 200s;
                     ## Restart Memcached Server
                     for k in "${memcachedServers[@]}";

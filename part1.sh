@@ -46,7 +46,7 @@ do
     for i in `seq 0 9`;
     do
         ssh $middleware tmux send -t foo "java" SPACE "-jar" SPACE "dist/middleware-jjain.jar" SPACE "-l" SPACE "10.0.0.10" SPACE "-p" SPACE "8000" SPACE "-t" SPACE $p SPACE "-r" SPACE "1" SPACE "-m" SPACE "10.0.0.6:11212" SPACE "10.0.0.14:11212" SPACE "10.0.0.7:11212" SPACE "10.0.0.11:11212" SPACE "10.0.0.5:11212" SPACE "\>" SPACE "../../middlwarethread"$p"clients"$clientnum".log" ENTER
-        pssh -h pssh-hosts -l jjain -A tmux send -t foo "./memaslap" SPACE "-s" SPACE "10.0.0.10:8000" SPACE "-T" SPACE ${client[0]} SPACE "-c" SPACE ${client[0]} SPACE "-o1" SPACE "-w" SPACE "1k" SPACE "-S" SPACE "1s" SPACE "-t" SPACE "360s" SPACE "-F" SPACE "new.cfg" SPACE "\>" SPACE "../../memslapthreads"$p"clients"$clientnum".log" ENTER 
+        pssh -h pssh-hosts -l jjain tmux send -t foo "./memaslap" SPACE "-s" SPACE "10.0.0.10:8000" SPACE "-T" SPACE ${client[0]} SPACE "-c" SPACE ${client[0]} SPACE "-o1" SPACE "-w" SPACE "1k" SPACE "-S" SPACE "1s" SPACE "-t" SPACE "360s" SPACE "-F" SPACE "new.cfg" SPACE "\>" SPACE "../../memslapthreads"$p"clients"$clientnum".log" ENTER 
         sleep 500
         ## Restart Memcached Server
         for k in "${memcachedServers[@]}";
